@@ -3,7 +3,6 @@ const baseURL = "http://numbersapi.com";
 //getting a fact about my favorite number
 let url = "http://numbersapi.com/13/year?json"
 let favoriteNumberPromise = axios.get(url);
-console.log("REQUEST HAS BEEN SENT!")
 favoriteNumberPromise.then(res => console.log(res.data))
 favoriteNumberPromise.catch(err => console.log("REJECTED!", err))
 
@@ -18,7 +17,6 @@ for (let i = 0; i <= 5; i++) {
 }
 
 Promise.all(randNumEndpoints.map((endpoint) => axios.get(endpoint))).then(res => {
-    console.log(res);
 
     res.forEach(fact => {
         console.log(fact.data);
@@ -34,7 +32,6 @@ Promise.all(
     })
 ).then(res => {
     res.forEach(fact => {
-        console.log(fact.data);
         $('ol').append(`<li>${fact.data.text}</li>`)
     })
 })
